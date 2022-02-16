@@ -34,7 +34,6 @@ function Contact(firstName, lastName, phoneNumber, address) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.phoneNumber = phoneNumber;
-  this.address = address;
 }
 
 function Address(emailAddress, workEmail, physicalAddress, workAddress){
@@ -108,8 +107,12 @@ $(document).ready(function() {
     $("input#work-address").val("");
 
 
-    var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputtedEmailAddress, inputtedWorkEmail, inputtedPhysicalAddress, inputtedWorkAddress);
+    var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
+
+    var newAddress = new Address(inputtedEmailAddress, inputtedWorkEmail, inputtedPhysicalAddress, inputtedWorkAddress);
+    
     addressBook.addContact(newContact);
+    newContact.address=newAddress;
     displayContactDetails(addressBook);
   });
 });
