@@ -87,6 +87,18 @@ function attachContactListeners() {
   });
 }
 
+function removeInput(){
+   // var element = document.getElementById("show-contact")
+  var child = document.getElementById("workEmail");
+    if($(child).val().length === 0){
+        child.remove(child);
+      }
+    };
+  window.onload = function(){
+      removeInput();
+};
+
+
 $(document).ready(function() {
   attachContactListeners();
   $("form#new-contact").submit(function(event) {
@@ -106,13 +118,73 @@ $(document).ready(function() {
     $("input#physical-address").val("");
     $("input#work-address").val("");
 
+    // var child = document.getElementById("workEmail");
+    // if($("input#work-email").val()=== ''){
+    //   inputtedWorkEmail.remove();
+    // };
+
 
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
 
     var newAddress = new Address(inputtedEmailAddress, inputtedWorkEmail, inputtedPhysicalAddress, inputtedWorkAddress);
     
+    
+    
     addressBook.addContact(newContact);
-    newContact.address=newAddress;
+    newContact.address = newAddress;
     displayContactDetails(addressBook);
+
+
+    // // var r = document.getElementById("workEmail");
+    // // for (let i=0; i < r; i++)
+    // // if (inputtedWorkEmail === r[i]){
+    // //   return r.remove();
+    // }
+    
+    });
   });
-});
+
+  // var r = document.getElementById("workEmail").val=null;
+  // for (let i=0; i < workEmail.length; i++)
+  // r.remove();
+
+  // $( "p" ).not(document.getElementById( "workEmail" ) )
+
+    // $("newAddress").remove("workEmail");
+
+
+//for (const key in obj) {
+ // if (obj[key] === '') {
+ //   delete obj[key];
+ // }
+//}
+
+// function showContact() {
+// div.remove('input#work-email');
+// }
+
+
+// function removeInput(){
+//   // var element = document.getElementById("show-contact")
+// var child = document.getElementById("workEmail");
+// if (child != "undefined" && child != null){
+//     child.remove(child);
+//   }
+// };
+//   window.onload = function(){
+//     removeInput();
+//   };
+
+
+// function removeInput(){
+//   // var element = document.getElementById("show-contact")
+// var child = document.getElementById("workEmail");
+// if($(child).val().length === 0){
+//   child.remove();
+// // }else{
+// //   return true;
+// }
+//   window.onload = function(){
+//     removeInput();
+//   }
+// };
